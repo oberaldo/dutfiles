@@ -34,4 +34,4 @@ Dwm
 [twitter]: https://twitter.com/Morgareth77
 [screenshot]: https://cdn.rawgit.com/Morgareth/dotfiles/master/Arch/Screenshots/13442254_1015912321818129_2846794945451042775_n.jpg?raw=true
 [screenshot1]:https://cdn.rawgit.com/Morgareth/dotfiles/master/Arch/Screenshots/2016-06-08-023700_1280x720_scrot.png?raw=true
-[screenshot2]:https://cdn.rawgit.com/Morgareth/dotfiles/master/Arch/Screenshots/2016-06-12-180142_1280x720_scrot.png
+[screenshot2]:https://cdn.rawgit.com/Morgareth/dutfiles/master/Arch/Screenshots/2016-06-12-180142_1280x720_scrot.png
