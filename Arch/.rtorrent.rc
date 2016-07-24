@@ -1,0 +1,73 @@
+# Opções gerais de download|upload.
+min_peers = 40
+max_peers = 100
+min_peers_seed = 10
+max_peers_seed = 50
+download_rate = 0
+upload_rate = 32
+max_downloads_global = 10
+max_uploads = 5
+max_uploads_global = 5
+check_hash = yes
+max_memory_usage = 1800M
+xmlrpc_size_limit = 2M
+ 
+# Trackers e DHT.
+dht=auto
+dht_port = 6881
+use_udp_trackers = yes
+peer_exchange = yes
+ 
+# Range de portas e encriptação.
+port_range = 49164-49164
+port_random = no
+encryption = allow_incoming,try_outgoing,enable_retry
+ 
+# Codificação.
+encoding_list = utf8
+ 
+# Tipo de visualização.
+view_sort_current = seeding,greater=d.get_ratio= 
+ 
+# Diretório de download e sessão.
+directory = /home/tiago/rtorrent/Temp
+session = ~/rtorrent/.session
+session_save = yes
+ 
+# Pré-alocação de arquivos: reduz a fragmentação.
+system.file_allocate.set = yes
+ 
+# Verificação de espaço em disco.
+schedule = low_diskspace,15,60,close_low_diskspace=1000M
+ 
+# Monitoramento de pastas.
+schedule = watch_start_directory,10,10,load_start=/home/tiago/rtorrent/Sources/*.torrent
+schedule = watch_load_directory,15,20,load=/home/tiago/rtorrent/Torrents/*.torrent
+schedule = untied_closing,30,30,close_untied=
+ 
+# Parar torrents quando limite de upload for atingido.
+# schedule = ratio,60,60,"stop_on_ratio=200,200M,2000"
+ 
+# Mostrar .torrents ativos.
+schedule = filter_active,30,30,"view_filter = active,\"or={d.get_up_rate=,d.get_down_rate=}\""
+
+# Sort the complete view by the upload rate
+view.sort_current = complete,greater=d.get_up_rate=
+view.filter = seeding,"and=d.get_complete="
+view.sort_new = seeding,less=d.get_up_rate=
+view.sort = seeding
+ 
+# Mover arquivos completos para o diretório Finish.
+system.method.set_key = event.download.finished,move_complete,"execute=mv,-u,$d.get_base_path=,~/rtorrent/Finish;d.set_directory=~/rtorrent/Finish"
+ 
+# Registro de status dos .torrents (LOADED, COMPLETED, CLOSED).
+system.method.set_key = event.download.inserted_new,log,"print=\"LOADED \",$d.get_name=,\" [\",$to_date=$system.time=,\"]\""
+system.method.set_key = event.download.finished,log,"print=\"COMPLETED \",$d.get_name=,\" [R=\",$d.get_ratio=,\", \",$to_date=$system.time=,\"]\""
+system.method.set_key = event.download.closed,log,"print=\"CLOSED \",$d.get_name=,\" [R=\",$d.get_ratio=,\", \",$to_date=$system.time=,\"]\""
+
+ 
+# UI/VIEW: Colors
+color_inactive_fg = 4
+color_dead_fg = 1
+color_active_fg = 3
+color_finished_fg = 2

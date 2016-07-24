@@ -1,0 +1,12 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 0.5
+total_run_times 0
+use_spacer none
+
+TEXT
+^bg()^fg(\#d2d2d2)^i(/home/tiago/.xmonad/icons/mr2.xbm)^fg()\
+^bg(\#d2d2d2)^fg(\#2d2d2d)   ^i(/home/tiago/.xmonad/icons/music.xbm)   ${exec sh /home/tiago/.xmonad/scripts/func_mpc.sh}   \
+^bg(\#d2d2d2)^fg(\#2D2D2D)^i(/home/tiago/.xmonad/icons/mr2.xbm)^fg()\
+^bg(\#2D2D2D)   ^i(/home/tiago/.xmonad/icons/vol.xbm)   ${exec sh /home/tiago/.xmonad/scripts/func_volume.sh}

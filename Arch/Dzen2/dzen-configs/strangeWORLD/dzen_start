@@ -1,0 +1,7 @@
+#!/bin/sh
+ 
+ FG='#dcdcdc'
+ BG='#333333'
+ conky -c ~/Dzen2/dzen-configs/strangeWORLD/.conkyrcdzen1 | dzen2 -e - -h '28' -w '900' -ta l -x '0' -fg $FG -bg $BG -fn 'Ubuntu:size=10' &
+
+ conky -c ~/Dzen2/dzen-configs/strangeWORLD/.conkyrcdzen2 | dzen2 -e - -h '28' -w '466' -ta r -x '900' -fg $FG -bg $BG -fn 'Ubuntu:size=10' &

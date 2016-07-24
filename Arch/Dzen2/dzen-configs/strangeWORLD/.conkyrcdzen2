@@ -1,0 +1,34 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 1.0
+total_run_times 0
+use_spacer none
+override_utf8_locale yes
+ 
+TEXT
+#
+# Volume control (left click mutes the volume)
+#
+^ca(1, amixer set Master toggle)^bg(\#666666)   ${exec ~/Dzen2/dzen-configs/strangeWORLD/volume.sh}  ${exec amixer get Master  | grep "Front Left:" | awk '{print $5}' | tr -d '[]'}   ^fg()^bg()^ca()\
+\
+#
+# PulseAudio Volume control and restarting dzen2
+#
+^ca(1, pavucontrol)^ca(3, killall dzen2 && dzen_start)  ^fg(\#e2abd4)^fn(FontAwesome:size=18)^fn()^fg()  ^ca()^ca()\
+#
+# Internet Connection
+#
+^ca(1, ~/Dzen2/dzen-configs/strangeWORLD/internet-state.sh)^bg(\#666666)${if_existing /sys/class/net/enp2s0f0/operstate up}  ^fn(Ionicons:size=18)^fn()  ${else}${if_existing /sys/class/net/enp3s0/operstate up}  ^fn(Ionicons:size=18)^fn()  ${else}  ^fg(\#222222)^fn(Ionicons:size=16)^fn()^fg()  ${endif}${endif}^bg()^ca()\
+#
+# Dropbox
+#
+^ca(1, ~/Dzen2/dzen-configs/strangeWORLD/dropbox-state.sh)${exec ~/Dzen2/dzen-configs/strangeWORLD/dropbox-icon.sh}^ca()\
+#
+# Battery state
+#
+#^ca(1, ~/Dzen2/dzen-configs/strangeWORLD/battery-state.sh)^bg()  ${exec ~/Dzen2/dzen-configs/strangeWORLD/battery-icon.sh}  ${exec acpi | awk '{print $4}' | tr -d ','}  ^bg()^ca()\
+#
+# XFCE logout dialog
+#
+^ca(1, oblogout)^fg(\#cacaca)^bg(\#875f87)   ^fn(FontAwesome:size=13)^fn()   ^ca()

@@ -1,0 +1,72 @@
+1. For new version x64-bit:
+
+-> wget http://stedolan.github.io/jq/download/linux64/jq
+
+Or use jq in this directory
+
+2. Make it executable
+
+-> chmod +x ./jq
+
+3. Create command
+
+-> sudo cp jq /usr/bin 
+
+
+======= USAGE (http://xmodulo.com/how-to-parse-json-string-via-command-line-on-linux.html)
+Example: 
+-> cat json.txt
+------------------------------------
+{
+        "name": "Google",
+        "location":
+                {
+                        "street": "1600 Amphitheatre Parkway",
+                        "city": "Mountain View",
+                        "state": "California",
+                        "country": "US"
+                },
+        "employees":
+                [
+                        {
+                                "name": "Michael",
+                                "division": "Engineering"
+                        },
+                        {
+                                "name": "Laura",
+                                "division": "HR"
+                        },
+                        {
+                                "name": "Elise",
+                                "division": "Marketing"
+                        }
+                ]
+}
+--------------------------------
+
+To parse a JSON object:
+-> cat json.txt | jq '.name'
+
+"Google"
+--------------------------------
+
+To parse a nested JSON object:
+-> cat json.txt | jq '.location.city'
+
+"Mountain View"
+--------------------------------
+
+To parse a JSON array:
+-> cat json.txt | jq '.employees[0].name'
+
+"Michael"
+--------------------------------
+
+To extract specific fields from a JSON object:
+-> cat json.txt | jq '.location | {street, city}'
+
+{
+  "city": "Mountain View",
+  "street": "1600 Amphitheatre Parkway"
+}
+

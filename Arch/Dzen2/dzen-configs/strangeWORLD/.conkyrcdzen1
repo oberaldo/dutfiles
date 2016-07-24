@@ -1,0 +1,51 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 1.0
+total_run_times 0
+use_spacer none
+override_utf8_locale yes
+ 
+TEXT
+#-------------------------------------------------
+#
+# Upload and parse gmail info
+${execi 60 curl -u thiagors1983@gmail.com:Carol@Ana2408 --silent "https://mail.google.com/mail/feed/atom" -o ~/.cache/gmail.xml && xmllint --format ~/.cache/gmail.xml > ~/.cache/gmailParsed.xml}
+#
+#--------------------------------------------------
+#
+# Upload and parse weather info
+${execi 900 curl -X GET --silent "https://api.forecast.io/forecast/33fa7cbd1eb3b98bae18cb131b9ae9e2/-18.9113,-48.2622
+" > ~/.cache/Forecast.json}\
+#
+#--------------------------------------------------
+#
+# XFCE appfinder launcher
+#
+^fg(\#cacaca)^bg(\#875f87)^ca(1, xfce4-appfinder)   ^fn(Ionicons:size=21)A^fn() ^ca()\
+#
+# Pacman updates
+#
+^ca(1, ~/Dzen2/dzen-configs/strangeWORLD/check-updates.sh)^bg(\#666666)${if_match ${execpi 300 checkupdates | wc -l} != 0}^fg(\#beffbe)   ^fn(Ionicons:size=13)P^fn()  ${execpi 300 checkupdates | wc -l} update(s)^fg()^bg()${else}^fg(\#333333)   ^fn(Ionicons:size=13)P^fn() ${execpi 300 checkupdates | wc -l} update(s)^fg()^bg()${endif}^fg(\#666666)^i(/home/tiago/Dzen2/Icons/mt1.xbm)^fg()^ca()   \
+#
+# Gmail Inbox
+#
+^ca(1, ~/Dzen2/dzen-configs/strangeWORLD/gmail-inbox.sh)${execi 60 ~/Dzen2/dzen-configs/strangeWORLD/gmail-icon.sh} ^bg(\#666666)^fg(\#333333)^i(/home/tiago/Dzen2/Icons/mt1.xbm)^fg()^ca() \
+#
+# System Info
+#
+^ca(1, ~/Dzen2/dzen-configs/strangeWORLD/sysinfo.sh)^fg(\#87d7ff)^fn(FontAwesome:size=13)^fn()  $kernel^bg(\#333333)^fg(\#666666)^i(/home/tiago/Dzen2/Icons/mt1.xbm)^fg()^ca()^bg()   \
+\
+#
+# Time & Date
+#
+^ca(1, ~/Dzen2/dzen-configs/strangeWORLD/time-date.sh)^fn()^fg(\#e2abd4)^fn(FontAwesome:size=13)^fn()  ${time %a, %b %d} ^fg(\#666666) | ^fg(\#e2abd4)${time %I:%M%P}^bg(\#666666)^fg(\#333333)^i(/home/tiago/Dzen2/Icons/mt1.xbm)^fg()^ca()\
+\
+#
+# Keyboard Layout
+#
+^ca(1, xkblayout-state set +1)^fn(Ubuntu:bold:size=10)^fg(\#333333)^bg(\#666666) ${exec xkblayout-state print "%s"}^bg()^fg(\#666666)^i(/home/tiago/Dzen2/Icons/mt1.xbm)^fg()^ca() \
+#
+# Weather Forecast
+#
+^ca(1, ~/Dzen2/dzen-configs/strangeWORLD/weather-info.sh)^fn(Weather Icons:size=13)${execi 300 ~/Dzen2/dzen-configs/strangeWORLD/weather-icon.sh}^ca()

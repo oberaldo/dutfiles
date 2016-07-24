@@ -1,0 +1,37 @@
+! special
+*foreground:   #e7700f
+*background:   #272727
+
+! black
+*color0:       #707880
+*color8:       #373b41
+
+! red
+*color1:       #a54242
+*color9:       #cc6666
+
+! green
+*color2:       #e7700f
+*color10:      #e7700f
+
+! yellow
+*color3:       #ff0000
+*color11:      #e7700f
+
+! blue
+*color4:       #5f819d
+*color12:      #ff0000
+
+! magenta
+*color5:       #ff0000
+*color13:      #e7700f
+
+! cyan
+*color6:       #e7700f
+*color14:      #ff0000
+
+! white
+*color7:       #707880
+*color15:      #e7700f
+
+

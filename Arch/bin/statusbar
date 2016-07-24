@@ -1,0 +1,31 @@
+while true; do
+
+SEP=$(echo -e '\ue105');
+
+DWM_WEATHER=$( echo -e `~/bin/weather.sh`);
+
+DWM_MAIL=$( echo -e '\ue072' `~/bin/gmail.sh`); 
+
+DWM_MPC=$( echo -e  '\ue04d' `~/bin/mpd.sh`);
+
+#Checkupdates
+DWM_PAC=$( echo -e '\ue00e' `checkupdates | wc -l`);
+
+#MEM
+DWM_MEM=$( echo -e  '\ue021' `free -mh | awk '/^Mem/ {print $3}'`);
+
+#Temp 
+DWM_TEMP=$( echo -e '\ue01b' `sensors coretemp-isa-0000 | awk '/Core 0/ {print $3}' | tr -d '+'`);
+
+# Volume Level
+DWM_VOL=$( echo -e  '\ue050' `amixer get Master | awk '$0~/%/{print $4}' | head -n 1 | tr -d '[]'` );
+
+# Date and Time
+DWM_CLOCK=$( echo -e '\ue017' `clock`);
+
+# Overall output command
+DWM_STATUS="$DWM_WEATHER $SEP $DWM_MPC $SEP $DWM_TEMP $SEP $DWM_MEM $SEP $DWM_PAC $SEP $DWM_VOL $SEP $DWM_CLOCK $SEP $DWM_MAIL";
+xsetroot -name "$DWM_STATUS";
+#sleep $DWM_RENEW_INT;
+
+done &

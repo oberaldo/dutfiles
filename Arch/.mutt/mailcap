@@ -1,0 +1,2 @@
+text/html;      elinks -dump 1 -eval "set document.codepage.assume = %{charset}" %s; copiousoutput; nametemplate=%s.html
+image/*;        anytopnm %s | pnmscale -xsize 80 -ysize 50 | ppmtopgm | pgmtopbm | pbmtoascii ; copiousoutput

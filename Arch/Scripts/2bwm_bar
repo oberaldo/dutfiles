@@ -1,0 +1,57 @@
+function statusbar {
+
+	function desk() {
+	DESKTOP=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
+	case $DESKTOP in
+		0)	echo "MAIN"
+			;;
+		1)	echo "WWW"
+			;;
+		2)	echo "DEVEL"
+			;;
+		3)	echo "NULL"
+			;;
+		4)	echo "GAME"
+			;;
+		*)	echo "error"
+	esac
+	}
+
+	function clock() {
+		time=$(date "+%A %b %d %Y %R")
+		echo $time
+	}
+
+	
+	function music() {
+#	mpc=$(mpc current)
+	mpc=$(mpc current | sed -e 's/.*\///g' -e 's/_/ /g' -e 's/\.m.*//')
+	mpc_s=`mpc status | grep playing | wc -l`
+	case $mpc_s in
+		1) 	mpc_stat="Playing: " 
+			echo $mpc_stat $mpc
+		;;
+		0) 	mpc_stat="Stopped"
+			echo $mpc_stat 
+		;;
+	esac
+	}
+	
+	function load() {
+		load=`uptime | sed 's/.*average: //'`
+		echo $load
+	}
+
+	function activewin() {
+		curwin=`xdotool getwindowfocus getwindowname`
+		echo $curwin
+	}
+
+#Desktop
+	echo "^p(_LEFT) ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D)|^fg(#FFFFFF) ^p(_CENTER)$(activewin) ^p(_RIGHT)^p(-340) | ^fg(#98414F)$(load)^fg(#2D2D2D) | ^fg(#98414F) $(clock)"
+}
+ while true 
+ do
+	 echo "$(statusbar)"
+	sleep 0.5	
+done | dzen2 -h 18 -w 1440 -ta c -p &

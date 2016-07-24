@@ -1,0 +1,49 @@
+1. Formatting json file
+
+AVAILABLE PYTHON TOOL
+-> cat ~/.cache/Forecast.json | python -m json.tool > ~/.cache/forecast_formatted.json
+
+JQ AND JSHON PARSERS
+Example usage of both parsers:
+-> printf "%0.0f\n" `cat ~/.cache/Forecast.json | jshon -e currently | jq '.temperature'`
+-----
+6
+
+
+3. Getting current temperature
+
+curr_temp=`cat ~/.cache/forecast_formatted.json | jq '.currently.apparentTemperature'`
+------
+19.66
+
+# Rounded value
+printf "%0.0f\n" $curr_temp
+-----
+20
+
+*************
+For conky:
+*************
+${execi 120 printf "%0.0f\n" `cat ~/.cache/forecast_formatted.json | jq '.currently.apparentTemperature'`}
+
+
+4. Weather icons are placed in [Dzen2/Weather/Icons-list] file
+
+-> cat ~/.cache/forecast_formatted.json | jq '.currently.icon' | grep -o '[^\"]*'
+-----
+sleet
+
+-> grep sleet ~/Dzen2/dzen-configs/strangeWORLD/weatherIconList | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"
+-----
+
+
+
+# we have several occurences of the word "cloudy", so we need the 1st line precisely for "cloudy"
+-> grep cloudy ~/Dzen2/dzen-configs/strangeWORLD/weatherIconList | awk 'NR==1' | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"
+------
+
+
+************
+For conky:
+************
+${execi 300 grep `cat ~/.cache/forecast_formatted.json | jq '.currently.icon' | grep -o '[^\"]*'` ~/Documents/Dzen2/Weather/Icons-list | awk 'NR==1' | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}

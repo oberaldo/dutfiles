@@ -1,0 +1,88 @@
+  #Basic settings for GMail
+  #
+  # Remember to replace USER, PASSWORD and NAME
+
+  set imap_user = ""
+  set imap_pass = ""
+  set smtp_url  = "smtp://@smtp.gmail.com:587/"
+  set smtp_pass = ""
+  set from      = ""
+  set realname  = "Thiago"
+
+  set spoolfile = imaps://imap.gmail.com:993/INBOX
+  set folder = imaps://imap.gmail.com:993
+  set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
+  set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"]
+
+  set header_cache=~/.mutt/hcache
+  set message_cachedir="~/.mutt/msgcache/"
+  set certificate_file=~/.mutt/certs
+
+  #automatically check mailboxes for new mail 
+  set imap_check_subscribed
+ 
+  #time to check new email
+  set mail_check = 120
+  set timeout = 10     
+
+  #see email html
+  auto_view text/html image/gif image/png image/jpeg
+
+  #Urlview - Ctrl + B list email URLs , Enter to open url
+  macro index \cb     "|urlview\n"
+  macro pager \cb     "|urlview\n"
+
+  #Locale
+  set locale="pt_BR" 
+  #===============================================================================#
+  # Editor
+  set editor = "vim"
+
+  #===============================================================================#
+  # UTF-8
+  set config_charset = "utf-8"
+  set charset = "utf-8"
+  set send_charset = "utf-8"
+  set assumed_charset = "utf-8"
+
+  set sort_browser = reverse-alpha     # Sort mailboxes by alpha(bet)
+  #set sort = reverse-date
+  set sort = threads       # Sort primarily by threads
+  set sort_aux = date      # Auxiliary sort by date
+
+  #===============================================================================#
+  #Sidebar
+  
+  #change width accordingly
+  set sidebar_width=25
+     
+  set sidebar_delim='|'
+  set sidebar_sort=yes
+  set sidebar_sort = yes
+
+  set sidebar_visible = yes
+  macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+  macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+  # Ctrl-n, Ctrl-p to select next, previous folder.
+  # Ctrl-o to open selected folder.
+  bind index,pager \CP sidebar-prev
+  bind index,pager \CN sidebar-next
+  bind index,pager \CO sidebar-open
+
+
+ #===============================================================================#
+ # Colors
+ source ~/.mutt/colors.nongeek
+
+ #===============================================================================#
+ # Odds and ends
+
+  unset collapse_unread            # don't collapse threads with unread messages
+  set fast_reply               # do not ask for to, subject ... when replying
+  #set markers             # Mark wrapped lines wih '+'
+  set smart_wrap               # Don't wrap mid-word
+  set pager_context=5          # Retain five lines of previous page when scrolling
+  set pager_index_lines=5          # Show a number of lines of index view 
+
+  push <show-version>          # Shows mutt version at startup

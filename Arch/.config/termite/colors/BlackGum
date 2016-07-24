@@ -1,0 +1,84 @@
+[options]
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = tewi 9
+scrollback_lines = 10000
+search_wrap = true
+#icon_name = terminal
+#geometry = 640x480
+
+# "system", "on" or "off"
+cursor_blink = on
+
+# "block", "underline" or "ibeam"
+cursor_shape = underline
+
+# $BROWSER is used by default
+browser = firefox
+
+# set size hints for the window
+#size_hints = false
+
+# emit escape sequences for other keys modified by Control
+#modify_other_keys = false
+
+
+[colors]
+
+# special
+foreground      = #ecedee
+foreground_bold = #ecedee
+cursor          = #ecedee
+background      = #111111
+
+# black
+color0  = #2e1f1f
+color8  = #422d2d
+
+# red
+color1  = #aa0e50
+color9  = #be0e50
+
+# green
+color2  = #1dcc9f
+color10 = #1fd9a9
+
+# yellow
+color3  = #27c282
+color11 = #2cdb93
+
+# blue
+color4  = #7182a8
+color12 = #8194bf
+
+# magenta
+color5  = #a673a6
+color13 = #7f5aa1
+
+# cyan
+color6  = #6da3a1
+color14 = #669997
+
+# white
+color7  = #b7bbbd
+color15 = #d9d9d9
+
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s

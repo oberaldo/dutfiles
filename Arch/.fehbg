@@ -1,0 +1,2 @@
+#!/bin/sh
+feh  --bg-scale '/home/tiago/Wallpapers/190099.jpg' 

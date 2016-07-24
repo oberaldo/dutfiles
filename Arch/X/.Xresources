@@ -1,0 +1,118 @@
+!-------------------------------!
+! ╻ ╻┏━┓┏━╸┏━┓┏━┓╻ ╻┏━┓┏━╸┏━╸┏━┓!
+! ┏╋┛┣┳┛┣╸ ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸ ┗━┓!
+! ╹ ╹╹┗╸┗━╸┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸┗━┛!
+! by Morgareh                   !
+!-------------------------------!
+
+!!----------------------------------------------------------------------------!!
+!! Xft (font) settings
+!!----------------------------------------------------------------------------!!
+ 
+xft*dpi: 96
+xft*antialias: false
+xft*hinting: full
+xft*rgba: rgb
+xft*autohint: false
+xft*hintstyle: hintslight
+xft*lcdfilter: lcddefault
+ 
+!!----------------------------------------------------------------------------!!
+!! mouse cursor settings
+!!----------------------------------------------------------------------------!!
+xcursor.theme:              Vanilla-DMZ
+xcursor.size:               22
+ 
+ 
+!!----------------------------------------------------------------------------!!
+!! general settings
+!!----------------------------------------------------------------------------!!
+
+urxvt.font: xft:pragmatapro for powerline:size=8,xft:meguri:pixelsize=8
+urxvt.boldFont: xft:pragmatapro for powerline:size=8,xft:meguri:pixelsize=8
+urxvt.letterSpace: -1
+
+Urxvt.scrollBar: false
+URxvt.internalBorder: 4
+URxvt.dynamicColors: on
+URxvt.borderLess: false
+URxvt.scrollBar: false
+URxvt.urgentOnBell: True
+URxvt.visualBell: False
+URxvt.saveLines: 1024
+URxvt.mouseWheelScrollPage: true
+
+!!----------------------------------------------------------------------------!!
+!! Extensions ~/.urxvt./ext
+!!----------------------------------------------------------------------------!!
+
+URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
+
+
+!!----------------------------------------------------------------------------!!
+!! Clipboard
+!!----------------------------------------------------------------------------!!
+
+URxvt.keysym.C-S-C: perl:clipboard:copy
+URxvt.keysym.C-S-V: perl:clipboard:paste
+URxvt.keysym.C-S-W: perl:clipboard:paste_escaped
+URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
+
+!!----------------------------------------------------------------------------!!
+!! Keyboard-selec
+!!----------------------------------------------------------------------------!!
+
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
+URxvt.keysym.C-S-S: perl:keyboard-select:search
+
+!!----------------------------------------------------------------------------!!
+!! Url-select
+!!----------------------------------------------------------------------------!!
+
+URxvt.keysym.C-S-U: perl:url-select:select_next
+URxvt.url-select.autocopy: true
+URxvt.url-select.button: 1
+URxvt.url-select.launcher: /usr/bin/firefox
+URxvt.url-select.underline: true
+
+!!----------------------------------------------------------------------------!!
+!!Urxvt  colors
+!!----------------------------------------------------------------------------!!
+
+URxvt.colorIT:                       #C1E5E9
+URxvt.colorBD:                       #76F0E9
+URxvt.colorUL:                       #00BFFF
+
+!!----------------------------------------------------------------------------!!
+!!General   colors
+!!----------------------------------------------------------------------------!!
+
+*background: #1D1F21
+*foreground: #C5C8C6
+*cursorColor: #00BFFF
+
+! black
+*color0: #282A2E
+*color8: #373B41
+! red
+*color1: #A54242
+*color9: #CC6666
+! green
+*color2: #8C9440
+*color10: #B5BD68
+! yellow
+*color3: #DE935F
+*color11: #F0C674
+! blue
+*color4: #5F819D
+*color12: #81A2BE
+! magenta
+*color5: #85678F
+*color13: #B294BB
+! cyan
+*color6: #5E8D87
+*color14: #8ABEB7
+! white
+*color7: #707880
+*color15: #C5C8C6 

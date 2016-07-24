@@ -1,0 +1,58 @@
+## Editor config
+
+## Use this tab size instead of the default; it must be greater than 0.
+set tabsize 4
+
+## Search using regex
+set regexp
+
+## Text wrapping
+set softwrap
+
+## Use auto-indentation.
+#set autoindent
+
+## Do case sensitive searches by default.
+set casesensitive
+
+## Enable ~/.nano_history for saving and reading search/replace strings.
+set historylog
+
+## Don't add newlines to the ends of files.
+set nonewlines
+
+## Allow nano to be suspended.
+set suspend
+
+## Scroll line-by-line
+set smooth  
+
+## Show cursor position in status bar
+set const
+
+## Backup files to filename~ 
+unset backup 
+
+## Syntax highlighting
+include ~/.local/share/nano-syntax-highlighting/zsh.nanorc
+include ~/.local/share/nano-syntax-highlighting/markdown.nanorc
+include ~/.local/share/nano-syntax-highlighting/systemd.nanorc 
+include ~/.local/share/nano-syntax-highlighting/php.nanorc
+include ~/.local/share/nano-syntax-highlighting/python.nanorc
+include ~/.local/share/nano-syntax-highlighting/mutt.nanorc
+include ~/.local/share/nano-syntax-highlighting/pkgbuild.nanorc
+include ~/.local/share/nano-syntax-highlighting/sed.nanorc
+include ~/.local/share/nano-syntax-highlighting/nanorc.nanorc
+include ~/.local/share/nano-syntax-highlighting/mpdconf.nanorc
+include ~/.local/share/nano-syntax-highlighting/conf.nanorc
+include ~/.local/share/nano-syntax-highlighting/awk.nanorc
+include ~/.local/share/nano-syntax-highlighting/sh.nanorc
+include ~/.local/share/nano-syntax-highlighting/lua.nanorc
+include ~/.local/share/nano-syntax-highlighting/vi.nanorc
+include ~/.local/share/nano-syntax-highlighting/conky.nanorc
+include ~/.local/share/nano-syntax-highlighting/apacheconf.nanorc
+include ~/.local/share/nano-syntax-highlighting/json.nanorc
+include ~/.local/share/nano-syntax-highlighting/gitcommit.nanorc
+include ~/.local/share/nano-syntax-highlighting/git.nanorc
+include ~/.local/share/nano-syntax-highlighting/email.nanorc
+	

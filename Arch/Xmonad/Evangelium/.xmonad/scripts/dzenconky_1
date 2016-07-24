@@ -1,0 +1,16 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 0.5
+total_run_times 0
+use_spacer none
+
+TEXT
+^bg()^fg(\#d2d2d2)^i(/home/tiago/.xmonad/icons/mt2.xbm)^fg()\
+^bg(\#d2d2d2)^fg(\#2d2d2d) ^i(/home/tiago/.xmonad/icons/arch1.xbm) ${exec checkupdates | wc -l}   \
+^bg(\#d2d2d2)^fg(\#2d2d2d) ^i(/home/tiago/.xmonad/icons/temp.xbm) ${exec sh /home/tiago/.xmonad/scripts/tem.sh}   \
+^i(/home/tiago/.xmonad/icons/mem.xbm) ${exec sh /home/tiago/.xmonad/scripts/mem.sh}   \
+^i(/home/tiago/.xmonad/icons/cpu.xbm) ${cpu cpu0}%  \
+^i(\#d2d2d2)^fg(\#2d2d2d) ^i(/home/tiago/.xmonad/icons/disk.xbm) ${exec sh /home/tiago/.xmonad/scripts/disk.sh}   \
+^bg(\#d2d2d2)^fg(\#2D2D2D)^i(/home/tiago/.xmonad/icons/mt2.xbm)^fg()\
+^bg(\#2D2D2D) ^i(/home/tiago/.xmonad/icons/clock.xbm)   ${time %R %p}     \
